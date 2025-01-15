@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "gitlab-summary"
+version = "0.1.0"
+description = "A Python application that analyzes GitLab activity and generates LinkedIn job summaries using OpenAI."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "gitlab_summary", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+python-gitlab = "^3.11"
+openai = "^0.27.0"
+pydantic = "^1.10"
+structlog = "^23.2"
+python-dotenv = "^1.0"
+requests = "^2.31"
+typer = {extras = ["all"], version = "^0.9.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4"
+pytest-cov = "^4.1"
+
+[tool.poetry.scripts]
+gitlab-summary = "gitlab_summary.main:app"
+
+[build-system]
+requires = ["poetry-core>=1.1.0"]
+build-backend = "poetry.core.masonry.api" 
